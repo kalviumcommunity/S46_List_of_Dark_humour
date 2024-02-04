@@ -1,24 +1,77 @@
+const Joke =require("../modals/jokeModel")
 const mongoose = require("mongoose");
 
-const getJoke = (req, res) => {
-  res.status(200).json({ message: "joke is ready to access" });
+const getJoke = async (req, res) => {
+    const {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: "joke doesn't exist"})
+    }
+
+    const joke = await Joke.findById(id)
+
+    if (!joke){
+        return res.status(404).json({error: "joke doesn't exist"})
+    }
+
+    res.status(200).json(joke)
 };
 
-const getJokes = (req, res) => {
-  res.status(200).json({ message: "joke is ready to display" });
+const getJokes = async (req, res) => {
+    const jokes = await Joke.find({}).sort({createdAt: -1})
+
+    res.status(200).json(jokes)
+}
+
+const createJoke = async (req, res) => {
+    const { joke } = req.body;
+  
+    try {
+      if (!joke) {
+        return res.status(400).json({ error: "Please provide a 'joke' in the request body" });
+      }
+      const newJoke = await Joke.create({ joke });
+
+      res.status(201).json(newJoke);
+
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
 };
 
-const createJoke = (req, res) => {
-  res.status(200).json({ message: "joke has been  created!" });
-};
+const updateJoke = async (req, res) => {
+    const {id} = req.params
 
-const updateJoke = (req, res) => {
-  res.status(200).json({ message: "joke has been  updated!" });
-};
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: "No such joke"})
+    }
 
-const deleteJoke = (req, res) => {
-  res.status(200).json({ message: "joke has been deleted" });
-};
+    const joke = await Joke.findOneAndUpdate({_id: id}, {
+        ...req.body
+    })
+
+    if (!joke){
+        return res.status(404).json({error: "No such joke"})
+    }
+
+    res.status(200).json(joke)
+}
+
+const deleteJoke = async (req, res) => {
+    const {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: "No such joke"})
+    }
+
+    const joke = await Joke.findOneAndDelete({_id: id})
+
+    if (!joke){
+        return res.status(404).json({error: "No such joke"})
+    }
+
+    res.status(200).json(joke)
+}
 
 module.exports = {
   getJoke,
