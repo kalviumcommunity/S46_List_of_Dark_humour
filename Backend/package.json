@@ -1,0 +1,12 @@
+{
+  "name": "s46_list_of_dark_humour",
+  "version": "1.0.0",
+  "description": "Welcome to the Dark Humor Project! This repository contains the source code for a website that showcases dark humor content. The project is divided into frontend and backend components, providing a seamless user experience.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
