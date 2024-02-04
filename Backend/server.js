@@ -1,19 +1,23 @@
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
-const port = 3000
+const port = process.env.PORT;
 
-
-
-app.get('/ping', (req, res) => {
-  res.json({ message: 'pong' });
+app.get("/home", (req, res) => {
+  res.status(200).json({ message: "connected to db" });
 });
 
 
-if (require.main === module) {
-  app.listen(port, () => {
-    console.log(`🚀 server running on PORT: ${port}`);
-  });
-}
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log('connected to db & listening on port ', process.env.PORT);
+        });
+    })
+    .catch((err) => console.log(err));
+
+
 
 module.exports = app;
-
