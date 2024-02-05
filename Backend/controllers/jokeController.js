@@ -42,13 +42,12 @@ const createJoke = async (req, res) => {
 const updateJoke = async (req, res) => {
     const {id} = req.params
 
+    
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: "No such joke"})
     }
 
-    const joke = await Joke.findOneAndUpdate({_id: id}, {
-        ...req.body
-    })
+    const joke = await Joke.findByIdAndUpdate({_id: id},req.body)
 
     if (!joke){
         return res.status(404).json({error: "No such joke"})

@@ -16,6 +16,7 @@ function Form() {
       .then((res) => {
         console.log("Server response:", res.data);
       })
+      window.location.reload()
       .catch((error) => {
         console.error("Error:", error);
       });
