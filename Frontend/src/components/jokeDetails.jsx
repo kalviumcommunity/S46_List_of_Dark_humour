@@ -9,11 +9,11 @@ function JokeDetails() {
       try {
         const response = await axios
           .get("http://localhost:3000/jokes")
-          .then((res) => {
-            setJokes(res.data);
-            // console.log(res.data);
-          })
-          .catch((e) => console.log(e));
+            .then((res) => {
+              setJokes(res.data);
+              // console.log(res.data);
+            })
+            .catch((e) => console.log(e));
       } catch (error) {
         console.error("Error fetching jokes:", error);
       }
@@ -29,7 +29,7 @@ function JokeDetails() {
           <h2>{joke.joke}</h2>
         </div>
       ))}
-      
+
     </div>
   );
 }
