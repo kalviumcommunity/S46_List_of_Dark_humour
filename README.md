@@ -29,5 +29,5 @@ Before you begin, ensure you have met the following requirements:
 
 ## Deployed Links:
 
-- Frontend : https://chat.google.com/dm/gKZeNUAAAAE/lRTbMRd5zLo/lRTbMRd5zLo?cls=10
+- Frontend : https://65c4a7fbfe9d3305765be0bd--fastidious-sunflower-923635.netlify.app/
 - Backend : https://dark-humour.onrender.com/
