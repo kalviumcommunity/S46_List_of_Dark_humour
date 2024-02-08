@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Content() {
   const [jokes, setJokes] = useState([]);
-  const [logged,setLogged]=useState(false)
+  const [logged, setLogged] = useState(false);
+
+  const location = useLocation();
+  const result = location.state;
 
   useEffect(() => {
     const fetchJokes = async () => {
@@ -13,7 +16,6 @@ function Content() {
           .get("http://localhost:3000/jokes")
           .then((res) => {
             setJokes(res.data);
-
           })
           .catch((e) => console.log(e));
       } catch (error) {
@@ -37,22 +39,25 @@ function Content() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("email")) {
+    // console.log(result);
+    if (!result) {
+      console.log(result);
       setLogged(true);
     } else {
       setLogged(false);
     }
-  }, [localStorage]);
+  }, [result]);
 
   return (
     <>
       <div className="bg-black flex justify-center">
-      {logged && ( 
+        {logged && (
           <Link to="/addjoke">
             <button className="text-lg font-semibold text-white px-6 rounded m-2 bg-green-400">
               Offend more
             </button>
-          </Link>)}
+          </Link>
+        )}
       </div>
       <div className="bg-black  flex justify-center content-center p-10 overflow-hidden">
         <div className="flex items-center flex-col  text-left mx-10">

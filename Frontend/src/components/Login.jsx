@@ -20,11 +20,9 @@ function Login() {
       .then((response) => {
         // Handle successful login
         localStorage.setItem("email", email);
-        console.log(response.data);
         navigate("/");
       })
       .catch((error) => {
-        // Handle login error
         setError(error.response.data.error);
       });
   };
