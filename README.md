@@ -25,3 +25,9 @@ Before you begin, ensure you have met the following requirements:
 
    ```bash
    git clone https://github.com/guruvedhanth-s/S46_List_of_Dark_humour.git
+
+
+## Deployed Links:
+
+- Frontend : https://chat.google.com/dm/gKZeNUAAAAE/lRTbMRd5zLo/lRTbMRd5zLo?cls=10
+- Backend : https://dark-humour.onrender.com/
