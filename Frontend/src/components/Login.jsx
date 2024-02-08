@@ -13,7 +13,7 @@ function Login() {
     setError(null);
     
     axios
-      .post("http://localhost:3000/user/login", {
+      .post("https://dark-humour.onrender.com/user/login", {
         email: email,
         password: password,
       })

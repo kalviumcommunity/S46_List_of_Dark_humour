@@ -12,7 +12,7 @@ function Signup() {
 
   const handleRegister = (e) => {
     axios
-      .post("http://localhost:3000/user/signup", {
+      .post("https://dark-humour.onrender.com/user/signup", {
         email: email,
         password: password,
       })

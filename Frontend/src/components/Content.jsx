@@ -13,7 +13,7 @@ function Content() {
     const fetchJokes = async () => {
       try {
         const response = await axios
-          .get("http://localhost:3000/jokes")
+          .get("https://dark-humour.onrender.com/jokes/")
           .then((res) => {
             setJokes(res.data);
           })
@@ -28,7 +28,7 @@ function Content() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/jokes/${id}`)
+      .delete(`https://dark-humour.onrender.com/jokes/${id}`)
       .then((res) => {
         console.log("Joke deleted:", res.data);
         setJokes((prevJokes) => prevJokes.filter((joke) => joke._id !== id));
@@ -61,11 +61,9 @@ function Content() {
       </div>
       {!logged && (
         <p className="text-white underline border-dashed flex justify-center text-lg font-semibold ">
-        Welcome to humour world offend more after login
-      </p>
-      )
-
-      }
+          Welcome to humour world offend more after login
+        </p>
+      )}
       <div className="bg-black  flex justify-center content-center p-10 overflow-hidden">
         <div className="flex items-center flex-col  text-left mx-10">
           {jokes.map((joke) => (

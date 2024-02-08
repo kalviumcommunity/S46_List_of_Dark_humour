@@ -21,7 +21,7 @@ function UpdateJoke() {
     }
 
     axios
-      .patch(`http://localhost:3000/jokes/${id.id}`, { joke: updatedJoke })
+      .patch(`https://dark-humour.onrender.com/jokes/${id.id}`, { joke: updatedJoke })
       .then((response) => {
         console.log("The joke has been updated", response);
         navigate("/");

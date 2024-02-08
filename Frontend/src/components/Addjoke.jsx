@@ -20,7 +20,7 @@ function Addjoke() {
     }
 
     axios
-      .post("http://localhost:3000/jokes/", { joke: value })
+      .post("https://dark-humour.onrender.com/jokes/", { joke: value })
       .then((res) => {
         console.log("Server response:", res.data);
         navigate("/");
