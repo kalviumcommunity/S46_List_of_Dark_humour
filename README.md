@@ -27,3 +27,7 @@ Before you begin, ensure you have met the following requirements:
    git clone https://github.com/guruvedhanth-s/S46_List_of_Dark_humour.git
 
 
+## Deployed link
+
+- Frontend: https://65c4c348348de80f76b99bbf--voluble-chaja-b03264.netlify.app/
+- Backend: https://dark-humour.onrender.com/
