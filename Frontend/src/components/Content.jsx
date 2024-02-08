@@ -59,6 +59,13 @@ function Content() {
           </Link>
         )}
       </div>
+      {!logged && (
+        <p className="text-white underline border-dashed flex justify-center text-lg font-semibold ">
+        Welcome to humour world offend more after login
+      </p>
+      )
+
+      }
       <div className="bg-black  flex justify-center content-center p-10 overflow-hidden">
         <div className="flex items-center flex-col  text-left mx-10">
           {jokes.map((joke) => (
