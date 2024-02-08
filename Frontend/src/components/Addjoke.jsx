@@ -6,6 +6,7 @@ function Addjoke() {
   const [value, setValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const [data, setData] = useState(true);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -23,7 +24,7 @@ function Addjoke() {
       .post("https://dark-humour.onrender.com/jokes/", { joke: value })
       .then((res) => {
         console.log("Server response:", res.data);
-        navigate("/");
+        navigate("/", { state: { result4: data } });
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -33,13 +34,27 @@ function Addjoke() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}className="flex items-center justify-center h-screen bg-black">
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center justify-center h-screen bg-black"
+      >
         <div className="max-w-xs mx-auto p-4 bg-gray-100 rounded shadow-md">
-          <input type="text"placeholder="Add a joke"onChange={handleChange}value={value}className="mb-4 p-2 w-full border rounded"/>
+          <input
+            type="text"
+            placeholder="Add a joke"
+            onChange={handleChange}
+            value={value}
+            className="mb-4 p-2 w-full border rounded"
+          />
           {errorMessage && (
             <p className="text-red-500 text-sm mb-4">{errorMessage}</p>
           )}
-          <button type="submit"className="bg-green-400 text-white p-2 w-full rounded hover:bg-green-500">ADD</button>
+          <button
+            type="submit"
+            className="bg-green-400 text-white p-2 w-full rounded hover:bg-green-500"
+          >
+            ADD
+          </button>
         </div>
       </form>
     </div>
