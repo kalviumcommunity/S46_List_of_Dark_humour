@@ -39,12 +39,11 @@ function Content() {
   };
 
   useEffect(() => {
-    // console.log(result);
-    if (!result) {
+    if (result) {
       console.log(result);
-      setLogged(true);
-    } else {
       setLogged(false);
+    } else {
+      setLogged(true);
     }
   }, [result]);
 
