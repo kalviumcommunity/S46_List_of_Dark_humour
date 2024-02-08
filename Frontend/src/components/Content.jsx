@@ -8,7 +8,7 @@ function Content() {
 
   const location = useLocation();
   // console.log(location);
-  const { result1, result2 } = location.state || {};
+  const { result1, result2 ,result3} = location.state || {};
 
   useEffect(() => {
     const fetchJokes = async () => {
@@ -41,10 +41,10 @@ function Content() {
 
   useEffect(() => {
     console.log(result1, result2);
-    if (result1 === undefined && result2 === undefined) {
+    if (result1 === undefined && result2 === undefined && result3===undefined) {
       setLogged(false);
     }
-    if (result1 === false) {
+    if (result1 === false || result3 ===false) {
       setLogged(true);
     }
     if (result2 === true) {

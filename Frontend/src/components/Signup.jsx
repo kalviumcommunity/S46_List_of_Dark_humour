@@ -9,6 +9,8 @@ function Signup() {
   let [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [data, setData] = useState(false);
+
 
   const handleRegister = (e) => {
     axios
@@ -20,7 +22,9 @@ function Signup() {
         console.log(email);
         localStorage.setItem("email", email);
         console.log(response.data);
-        navigate("/");
+        setData(true);
+        navigate("/", { state:{result3:data} });
+
       })
       .catch((error) => {
         setError(error.response.data.error);
