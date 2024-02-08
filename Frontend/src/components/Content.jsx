@@ -7,7 +7,8 @@ function Content() {
   const [logged, setLogged] = useState(false);
 
   const location = useLocation();
-  const result = location.state;
+  // console.log(location);
+  const { result1, result2 } = location.state || {};
 
   useEffect(() => {
     const fetchJokes = async () => {
@@ -39,13 +40,17 @@ function Content() {
   };
 
   useEffect(() => {
-    if (result) {
-      console.log(result);
+    console.log(result1, result2);
+    if (result1 === undefined && result2 === undefined) {
       setLogged(false);
-    } else {
+    }
+    if (result1 === false) {
       setLogged(true);
     }
-  }, [result]);
+    if (result2 === true) {
+      setLogged(false);
+    }
+  }, [result1, result2]);
 
   return (
     <>
@@ -60,7 +65,7 @@ function Content() {
       </div>
       {!logged && (
         <p className="text-white underline border-dashed flex justify-center text-lg font-semibold ">
-          Welcome to humour world offend more after login
+          Welcome to humour world to offend more after login
         </p>
       )}
       <div className="bg-black  flex justify-center content-center p-10 overflow-hidden">

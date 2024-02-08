@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -7,11 +7,12 @@ function Login() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [data, setData] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
     setError(null);
-    
+
     axios
       .post("https://dark-humour.onrender.com/user/login", {
         email: email,
@@ -20,10 +21,12 @@ function Login() {
       .then((response) => {
         // Handle successful login
         localStorage.setItem("email", email);
-        navigate("/");
+        setData(true);
+        navigate("/", { state:{result1:data} });
       })
       .catch((error) => {
         setError(error.response.data.error);
+        // setData(false);
       });
   };
 

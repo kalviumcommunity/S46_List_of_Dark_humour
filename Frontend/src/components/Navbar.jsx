@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [user, setUser] = useState(false);
   const [usermail, setUsermail] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     // Check if the user is logged in when the component mounts
     if (localStorage.getItem("email")) {
@@ -16,13 +16,12 @@ function Navbar() {
   }, []);
 
   const handleLogout = () => {
-
     // Clear the user's email from localStorage and reset state
+    // e.preventdefault();
     localStorage.removeItem("email");
     setUsermail("");
     setUser(false);
-    navigate("/",{state:user})
-
+    navigate("/", { state:{result2:user} });
   };
 
   return (
@@ -47,13 +46,12 @@ function Navbar() {
         {user && (
           <>
             <p className="text-white m-2 font-semibold">{usermail}</p>
-            {/* <Link to="/" state={{result:user}}> */}
-              <button
-                className="font-semibold text-white px-6 rounded m-2 bg-green-400"
-                onClick={handleLogout}  
-              >Logout
-              </button>
-            {/* </Link> */}
+            <button
+              className="font-semibold text-white px-6 rounded m-2 bg-green-400"
+              onClick={() => handleLogout()}
+            >
+              Logout
+            </button>
           </>
         )}
       </div>
