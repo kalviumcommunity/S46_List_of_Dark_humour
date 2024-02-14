@@ -6,9 +6,9 @@ Welcome to the Dark Humor Project! This repository contains the source code for 
 
 ## Features
 
-- Dark humor content display
+- Dark humoUr content display
 - User authentication and authorization
-- Uploading and sharing dark humor content
+- Uploading and sharing dark humour content
 - Commenting and voting on content
 - Backend API for data management
 
@@ -29,5 +29,5 @@ Before you begin, ensure you have met the following requirements:
 
 ## Deployed link
 
-- Frontend: https://65c4c348348de80f76b99bbf--voluble-chaja-b03264.netlify.app/
+- Frontend: https://65cc83a37921188ab93d728c--ubiquitous-choux-8b8170.netlify.app/
 - Backend: https://dark-humour.onrender.com/
