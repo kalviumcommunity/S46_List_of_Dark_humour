@@ -1,27 +1,31 @@
-const express = require('express');
+const express = require("express");
 const {
   createJoke,
   getJokes,
   getJoke,
   deleteJoke,
-  updateJoke
-} = require('../controllers/jokeController');
+  updateJoke,
+  getJokesByUser,
+} = require("../controllers/jokeController");
 
 const router = express.Router();
 
 // GET all Jokes
-router.get('/', getJokes);
+router.get("/", getJokes);
 
 // GET a single Joke
-router.get('/:id', getJoke);
+router.get("/:id", getJoke);
+
+// GET a joke based on user
+router.get("/:user", getJokesByUser);
 
 // POST a new Joke
-router.post('/', createJoke);
+router.post("/", createJoke);
 
 // DELETE a Joke
-router.delete('/:id', deleteJoke);
+router.delete("/:id", deleteJoke);
 
 // UPDATE a Joke
-router.patch('/:id', updateJoke);
+router.patch("/:id", updateJoke);
 
 module.exports = router;

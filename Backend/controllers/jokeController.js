@@ -23,21 +23,35 @@ const getJokes = async (req, res) => {
     res.status(200).json(jokes)
 }
 
-const createJoke = async (req, res) => {
-    const { joke } = req.body;
-  
+const getJokesByUser = async (req, res) => {
+    const { userEmail } = req.params;
+
     try {
-      if (!joke) {
-        return res.status(400).json({ error: "Please provide a 'joke' in the request body" });
-      }
-      const newJoke = await Joke.create({ joke });
-
-      res.status(201).json(newJoke);
-
+        const jokes = await Joke.find({ user: userEmail }).sort({ createdAt: -1 });
+        res.status(200).json(jokes);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
 };
+
+
+const createJoke = async (req, res) => {
+    const { joke, user } = req.body;
+    console.log(joke,user)
+
+    try {
+        if (!joke || !user) {
+            return res.status(400).json({ error: "Please provide a 'joke' and 'user' in the request body" });
+        }
+        const newJoke = await Joke.create({ joke, user: user });
+
+        res.status(201).json(newJoke);
+
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 
 const updateJoke = async (req, res) => {
     const {id} = req.params
@@ -75,6 +89,7 @@ const deleteJoke = async (req, res) => {
 module.exports = {
   getJoke,
   getJokes,
+  getJokesByUser,
   createJoke,
   updateJoke,
   deleteJoke,

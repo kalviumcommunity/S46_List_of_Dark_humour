@@ -13,6 +13,7 @@ function Addjoke() {
   };
 
   const handleSubmit = (e) => {
+    // console.log(localStorage.getItem("email"))
     e.preventDefault();
 
     if (!value.trim()) {
@@ -20,8 +21,10 @@ function Addjoke() {
       return;
     }
 
+    const user = localStorage.getItem("email")
+
     axios
-      .post("https://dark-humour.onrender.com/jokes/", { joke: value })
+      .post("https://dark-humour.onrender.com/jokes/", { joke: value , user})
       .then((res) => {
         console.log("Server response:", res.data);
         navigate("/", { state: { result4: data } });
