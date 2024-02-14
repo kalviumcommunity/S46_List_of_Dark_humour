@@ -42,18 +42,20 @@ Before you begin, ensure you have met the following requirements:
 
 [Sign-up page]
 
-![Screenshot 2024-02-14 175547](https://github.com/kalviumcommunity/S46_List_of_Dark_humour/assets/88874107/d91c40c9-3eea-4552-a929-2b068cbded16)
+![image](https://github.com/kalviumcommunity/S46_List_of_Dark_humour/assets/88874107/e5e422a2-0680-4c00-98a0-5de77bd9a3ea)
 
 
 [CRUD]
 
-![Screenshot 2024-02-14 175410](https://github.com/kalviumcommunity/S46_List_of_Dark_humour/assets/88874107/178da46f-9434-4ff0-95c3-e1cbebe75571)
+
+![image](https://github.com/kalviumcommunity/S46_List_of_Dark_humour/assets/88874107/6dfb40a4-19a5-4f34-987e-b1d7335fe4c3)
 
 
-![image](https://github.com/kalviumcommunity/S46_List_of_Dark_humour/assets/88874107/cb750511-416c-4280-a3b5-d8f247ccdd36)
+![image](https://github.com/kalviumcommunity/S46_List_of_Dark_humour/assets/88874107/904b0ee4-96d4-4311-b4ef-6e685f2029c4)
+
 
 
 ## Referral video
 
-https://drive.google.com/file/d/1AQfUO6qfwoUrh7j-pbO0GB7BjIe9yfXC/view?usp=sharing
+- Drive: https://drive.google.com/file/d/1AQfUO6qfwoUrh7j-pbO0GB7BjIe9yfXC/view?usp=sharing
 
