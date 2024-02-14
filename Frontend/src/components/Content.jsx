@@ -85,7 +85,7 @@ function Content() {
       </div>
       {!logged && (
         <p className="text-white underline border-dashed flex justify-center text-lg font-semibold ">
-          Welcome to humour world to offend more after login
+          Welcome to humour world offend more after login
         </p>
       )}
       <div className="bg-black  flex justify-center content-center p-10 overflow-hidden">
