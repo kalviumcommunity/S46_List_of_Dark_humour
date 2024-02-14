@@ -24,7 +24,7 @@ function Addjoke() {
     const user = localStorage.getItem("email")
 
     axios
-      .post("http://localhost:3000/jokes/", { joke: value , user})
+      .post("https://dark-humour.onrender.com/jokes/", { joke: value , user})
       .then((res) => {
         console.log("Server response:", res.data);
         navigate("/", { state: { result4: data } });
